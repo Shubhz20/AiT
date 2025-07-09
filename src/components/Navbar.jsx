@@ -12,7 +12,7 @@ const Navbar = ({ toggleTheme, lightMode }) => {
     { path: '/accommodation', label: 'Accommodation' },
     { path: '/transportation', label: 'Transportation' },
     { path: '/agenda', label: 'Trip Agenda' },
-    { path: '/extra-charges', label: 'Extra Charges' },
+    { path: '/activities-attractions', label: 'Activities & Attractions' },
     { path: '/local-phrases', label: 'Local Phrases' },
     { path: '/feedback', label: 'Feedback' },
   ];

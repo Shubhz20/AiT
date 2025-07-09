@@ -7,7 +7,7 @@ import Necessities from './components/Necessities';
 import Accommodation from './components/Accommodation';
 import Transportation from './components/Transportation';
 import Agenda from './components/Agenda';
-import ExtraCharges from './components/ExtraCharges';
+import ActivitiesAttractions from './components/ActivitiesAttractions';
 import LocalPhrases from './components/LocalPhrases';
 import Feedback from './components/Feedback';
 
@@ -38,7 +38,7 @@ function App() {
           <Route path="/accommodation" element={<Accommodation />} />
           <Route path="/transportation" element={<Transportation />} />
           <Route path="/agenda" element={<Agenda />} />
-          <Route path="/extra-charges" element={<ExtraCharges />} />
+          <Route path="/activities-attractions" element={<ActivitiesAttractions />} />
           <Route path="/local-phrases" element={<LocalPhrases />} />
           <Route path="/feedback" element={<Feedback />} />
         </Routes>
