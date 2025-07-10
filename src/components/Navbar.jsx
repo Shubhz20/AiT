@@ -8,14 +8,14 @@ const Navbar = ({ toggleTheme, lightMode }) => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/', label: 'Home', icon: MapPin },
-    { path: '/necessities', label: 'Necessities', icon: ShoppingBag },
-    { path: '/accommodation', label: 'Accommodation', icon: Bed },
-    { path: '/agenda', label: 'Trip Agenda', icon: Calendar },
-    { path: '/extra-charges', label: 'Extra Charges', icon: DollarSign },
-    { path: '/local-phrases', label: 'Local Phrases', icon: MessageCircle },
-    { path: '/tips', label: 'Tips', icon: Sparkles },
-    { path: '/feedback', label: 'Feedback', icon: Star },
+    { path: '/', label: 'Home' },
+    { path: '/necessities', label: 'Necessities' },
+    { path: '/accommodation', label: 'Accommodation' },
+    { path: '/transportation', label: 'Transportation' },
+    { path: '/agenda', label: 'Trip Agenda' },
+    { path: '/extra-charges', label: 'Extra Charges' },
+    { path: '/local-phrases', label: 'Local Phrases' },
+    { path: '/feedback', label: 'Feedback' },
   ];
 
   const isActive = (path) => location.pathname === path;
