@@ -1,6 +1,31 @@
 import React, { useState } from 'react';
 import { Volume2, BookOpen, MessageCircle, Heart } from 'lucide-react';
 
+const speakArabic = (text) => {
+  if ('speechSynthesis' in window) {
+    const synth = window.speechSynthesis;
+    const speak = () => {
+      const utterance = new window.SpeechSynthesisUtterance(text);
+      utterance.lang = 'ar-EG';
+      utterance.rate = 0.9;
+      // Try to select an Arabic voice
+      const voices = synth.getVoices();
+      const arabicVoice = voices.find(v => v.lang && v.lang.startsWith('ar'));
+      if (arabicVoice) utterance.voice = arabicVoice;
+      synth.speak(utterance);
+    };
+    // Some browsers need getVoices to be loaded asynchronously
+    if (synth.getVoices().length === 0) {
+      synth.onvoiceschanged = speak;
+      synth.getVoices(); // Trigger loading
+    } else {
+      speak();
+    }
+  } else {
+    alert('Sorry, your browser does not support speech synthesis.');
+  }
+};
+
 const LocalPhrases = () => {
   const [selectedCategory, setSelectedCategory] = useState('basic');
 
@@ -25,7 +50,7 @@ const LocalPhrases = () => {
       title: 'Shopping & Money',
       icon: BookOpen,
       phrases: [
-        { english: 'How much?', arabic: 'بكام؟', pronunciation: 'Be kam?', usage: 'Asking for price' },
+        { english: 'How much?', arabic: 'بكام؟', pronunciation: 'Bekam?', usage: 'Asking for price' },
         { english: 'Too expensive', arabic: 'غالي قوي', pronunciation: 'Ghali awi', usage: 'When price is high' },
         { english: 'Can you make it cheaper?', arabic: 'ممكن تخليه أرخص؟', pronunciation: 'Mumkin tkhallih arkhas?', usage: 'Bargaining' },
         { english: 'I want this', arabic: 'أنا عايز ده', pronunciation: 'Ana ayiz da', usage: 'Selecting an item' },
@@ -74,17 +99,16 @@ const LocalPhrases = () => {
   const categories = Object.keys(phraseCategories);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-100 via-gold-200 to-nile-200 py-12 animate-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="font-serif text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="font-serif text-4xl md:text-5xl font-extrabold text-gold-700 mb-4 drop-shadow-xl">
             Essential Arabic Phrases
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
             Learn basic Arabic phrases to enhance your travel experience in Egypt
           </p>
         </div>
-
         {/* Category Selection */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => {
@@ -93,10 +117,10 @@ const LocalPhrases = () => {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-lg shadow-lg border-2 border-gold-200 hover:border-nile-400 ${
                   selectedCategory === category
-                    ? 'bg-gold-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gold-100 hover:text-gold-800'
+                    ? 'bg-gradient-to-r from-gold-400 via-nile-200 to-yellow-300 text-white shadow-2xl'
+                    : 'bg-white text-gold-700 hover:bg-gold-100 hover:text-nile-700'
                 }`}
               >
                 <CategoryIcon className="h-5 w-5" />
@@ -105,10 +129,9 @@ const LocalPhrases = () => {
             );
           })}
         </div>
-
         {/* Phrases Display */}
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <div className="bg-gold-600 text-white p-6">
+        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden backdrop-blur-lg bg-opacity-90 border-0">
+          <div className="bg-gradient-to-r from-gold-600 via-nile-400 to-yellow-400 text-white p-8 rounded-t-3xl">
             <div className="flex items-center space-x-3">
               {React.createElement(phraseCategories[selectedCategory].icon, { className: "h-8 w-8" })}
               <h2 className="font-serif text-3xl font-bold">
@@ -116,11 +139,10 @@ const LocalPhrases = () => {
               </h2>
             </div>
           </div>
-          
-          <div className="p-6">
-            <div className="space-y-4">
+          <div className="p-8">
+            <div className="space-y-6">
               {phraseCategories[selectedCategory].phrases.map((phrase, index) => (
-                <div key={index} className="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition-colors duration-200">
+                <div key={index} className="bg-gradient-to-r from-yellow-50 via-gold-100 to-nile-50 rounded-xl p-6 hover:scale-[1.02] hover:shadow-xl transition-all duration-300">
                   <div className="grid md:grid-cols-3 gap-4 items-center">
                     <div>
                       <h3 className="font-semibold text-lg text-gray-900 mb-1">
@@ -128,7 +150,6 @@ const LocalPhrases = () => {
                       </h3>
                       <p className="text-sm text-gray-600">{phrase.usage}</p>
                     </div>
-                    
                     <div className="text-center">
                       <div className="text-2xl font-bold text-nile-600 mb-2 font-arabic">
                         {phrase.arabic}
@@ -137,9 +158,11 @@ const LocalPhrases = () => {
                         {phrase.pronunciation}
                       </div>
                     </div>
-                    
                     <div className="text-center md:text-right">
-                      <button className="inline-flex items-center space-x-2 bg-gold-100 hover:bg-gold-200 text-gold-800 px-4 py-2 rounded-lg transition-colors duration-200">
+                      <button
+                        className="inline-flex items-center space-x-2 bg-gold-100 hover:bg-gold-200 text-gold-800 px-4 py-2 rounded-lg transition-colors duration-200 shadow-md"
+                        onClick={() => speakArabic(phrase.arabic)}
+                      >
                         <Volume2 className="h-4 w-4" />
                         <span className="text-sm font-medium">Listen</span>
                       </button>
@@ -150,13 +173,12 @@ const LocalPhrases = () => {
             </div>
           </div>
         </div>
-
         {/* Learning Tips */}
-        <div className="mt-12 bg-white rounded-lg shadow-lg p-8">
-          <h2 className="font-serif text-3xl font-bold text-gray-900 mb-6 text-center">
+        <div className="mt-12 bg-gradient-to-r from-gold-100 via-yellow-50 to-nile-100 rounded-3xl p-12 border-2 border-gold-200 shadow-xl">
+          <h2 className="font-serif text-3xl font-extrabold text-gold-700 mb-8 text-center">
             Arabic Learning Tips
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div className="text-center">
               <div className="bg-gold-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MessageCircle className="h-8 w-8 text-gold-600" />

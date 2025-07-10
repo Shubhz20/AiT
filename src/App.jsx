@@ -5,11 +5,11 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Necessities from './components/Necessities';
 import Accommodation from './components/Accommodation';
-import Transportation from './components/Transportation';
 import Agenda from './components/Agenda';
 import ExtraCharges from './components/ExtraCharges';
 import LocalPhrases from './components/LocalPhrases';
 import Feedback from './components/Feedback';
+import Tips from './components/Tips';
 
 function App() {
   const [lightMode, setLightMode] = useState(() => {
@@ -36,10 +36,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/necessities" element={<Necessities />} />
           <Route path="/accommodation" element={<Accommodation />} />
-          <Route path="/transportation" element={<Transportation />} />
           <Route path="/agenda" element={<Agenda />} />
           <Route path="/extra-charges" element={<ExtraCharges />} />
           <Route path="/local-phrases" element={<LocalPhrases />} />
+          <Route path="/tips" element={<Tips />} />
           <Route path="/feedback" element={<Feedback />} />
         </Routes>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Coffee, ShoppingBag, Wine, Cigarette } from 'lucide-react';
+import { Coffee, ShoppingBag, Wine, Cigarette, Car } from 'lucide-react';
 
 const Necessities = () => {
   const categories = [
@@ -7,51 +7,51 @@ const Necessities = () => {
       icon: Coffee,
       title: 'Food & Drinks',
       items: [
-        { name: 'Traditional Egyptian Breakfast', price: '15-25 EGP', description: 'Ful medames, falafel, bread' },
-        { name: 'Street Food', price: '5-15 EGP', description: 'Koshari, shawarma, falafel' },
-        { name: 'Restaurant Meal', price: '50-150 EGP', description: 'Mid-range dining experience' },
+        { name: 'Traditional Egyptian Breakfast', price: '15-50 EGP', description: 'Ful medames, falafel, bread' },
+        { name: 'Street Food', price: '30-100 EGP', description: 'Koshari, shawarma, falafel' },
+        { name: 'Restaurant Meal', price: '70-150 EGP', description: 'Mid-range dining experience' },
         { name: 'Fresh Juice', price: '10-20 EGP', description: 'Mango, orange, sugarcane' },
-        { name: 'Tea/Coffee', price: '5-15 EGP', description: 'Traditional Egyptian tea or Turkish coffee' },
-        { name: 'Bottled Water', price: '3-5 EGP', description: 'Always recommended for tourists' }
+        { name: 'Tea/Coffee', price: '10-40 EGP', description: 'Traditional Egyptian tea or Turkish coffee' },
+        { name: 'Bottled Water', price: '5-15 EGP', description: 'Always recommended for tourists' }
       ],
       color: 'gold'
     },
     {
-      icon: ShoppingBag,
-      title: 'Clothes',
+      icon: Car,
+      title: 'Transportation',
       items: [
-        { name: 'Cotton T-Shirts', price: '50-150 EGP', description: 'Perfect for hot weather' },
-        { name: 'Traditional Galabiya', price: '100-300 EGP', description: 'Comfortable local clothing' },
-        { name: 'Scarves/Hijabs', price: '30-100 EGP', description: 'For visiting mosques' },
-        { name: 'Sandals', price: '80-200 EGP', description: 'Comfortable walking shoes' },
-        { name: 'Sun Hat', price: '25-75 EGP', description: 'Essential for desert visits' },
-        { name: 'Light Jacket', price: '150-400 EGP', description: 'For cooler evenings' }
+        { name: 'Cabs', price: '30-120 EGP', description: 'For Upto 10km' },
+        { name: 'Cabs', price: '600-800 EGP', description: 'For upto 100km' },
+        { name: 'Sharing vans', price: '5-10 EGP', description: 'To save Money' },
+        { name: 'Trains', price: '50-200 EGP', description: 'For Long Distances' },
+        { name: 'Car Rental', price: '25-75 EGP', description: 'If you want to drive yourself' },
+        { name: 'Bikes', price: '15-40 EGP', description: 'For Faster Travel' }
       ],
       color: 'sand'
     },
     {
       icon: Wine,
-      title: 'Cigarettes & Alcohol',
+      title: 'Smoking & Drinking',
       items: [
-        { name: 'Local Cigarettes', price: '15-25 EGP', description: 'Cleopatra, L&M brands' },
-        { name: 'International Cigarettes', price: '35-50 EGP', description: 'Marlboro, Camel' },
-        { name: 'Local Beer (Stella)', price: '15-25 EGP', description: 'Popular Egyptian beer' },
+        { name: 'Cigarettes', price: '80-100 EGP', description: 'Cleopatra, L&M, Marlboro' },
+        { name: 'Vapes', price: '600-2000 EGP', description: 'Reusable,disposeable' },
+        { name: 'Local Beer (Stella)', price: '60-100 EGP', description: 'Popular Egyptian beer' },
         { name: 'Wine', price: '200-500 EGP', description: 'Limited selection available' },
-        { name: 'Spirits', price: '300-800 EGP', description: 'Available in hotels and duty-free' },
+        { name: 'Hookah', price: '25-70 EGP', description: 'Available at almost all cafes ' },
         { name: 'Note', price: 'Varies', description: 'Alcohol availability limited in some areas' }
       ],
       color: 'nile'
     },
     {
-      icon: Cigarette,
-      title: 'Hookah',
+      icon: ShoppingBag,
+      title: 'Groceries',
       items: [
-        { name: 'Café Hookah Session', price: '30-60 EGP', description: 'Traditional shisha experience' },
-        { name: 'Hotel Hookah', price: '80-150 EGP', description: 'Premium tourist locations' },
-        { name: 'Hookah Tobacco', price: '20-40 EGP', description: 'Various flavors available' },
-        { name: 'Portable Hookah', price: '200-500 EGP', description: 'Souvenir option' },
-        { name: 'Traditional Café', price: '25-45 EGP', description: 'Authentic local experience' },
-        { name: 'Fruit Flavored', price: '35-65 EGP', description: 'Apple, grape, mint varieties' }
+        { name: 'Vegetables', price: '5-40 EGP', description: 'Per Kg' },
+        { name: 'Fruits', price: '60-150 EGP', description: 'Per Kg' },
+        { name: 'Milk', price: '45-60 EGP', description: 'Per Litre' },
+        { name: 'Cooking Oil', price: '65-150 EGP', description: 'Per Litre' },
+        { name: 'Cold Drinks', price: '10-45 EGP', description: 'Coca Cola,schweppes,sprite' },
+        { name: 'Grains', price: '40-100 EGP', description: 'Per Kg' }
       ],
       color: 'gold'
     }
@@ -59,9 +59,9 @@ const Necessities = () => {
 
   const getColorClasses = (color) => {
     const colors = {
-      gold: 'bg-gold-50 border-gold-200 hover:bg-gold-100',
-      sand: 'bg-sand-50 border-sand-200 hover:bg-sand-100',
-      nile: 'bg-nile-50 border-nile-200 hover:bg-nile-100'
+      gold: 'from-yellow-100 via-gold-200 to-nile-200',
+      sand: 'from-sand-100 via-yellow-100 to-gold-100',
+      nile: 'from-nile-100 via-gold-100 to-yellow-100',
     };
     return colors[color] || colors.gold;
   };
@@ -70,61 +70,52 @@ const Necessities = () => {
     const colors = {
       gold: 'text-gold-600',
       sand: 'text-sand-600',
-      nile: 'text-nile-600'
+      nile: 'text-nile-600',
     };
     return colors[color] || colors.gold;
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="font-serif text-4xl font-bold text-gray-900 mb-4">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-100 via-gold-200 to-nile-200 py-16 animate-fade-in">
+      <div className="max-w-7xl mx-auto px-2 sm:px-8 lg:px-16">
+        <div className="text-center mb-14">
+          <h1 className="font-serif text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-600 via-nile-600 to-yellow-500 drop-shadow-xl mb-4">
             Basic Necessities in Egypt
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-2xl text-gray-700 max-w-3xl mx-auto font-medium">
             Essential items and their approximate costs to help you budget for your Egyptian adventure
           </p>
         </div>
-
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-12">
           {categories.map((category, index) => {
             const IconComponent = category.icon;
             return (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-                <div className={`p-6 ${getColorClasses(category.color)} border-b`}>
-                  <div className="flex items-center space-x-4">
-                    <div className="flex-shrink-0">
-                      <IconComponent className={`h-8 w-8 ${getIconColor(category.color)}`} />
-                    </div>
-                    <h2 className="font-serif text-2xl font-semibold text-gray-900">
-                      {category.title}
-                    </h2>
-                  </div>
+              <div key={index} className="rounded-3xl shadow-2xl p-10 min-h-[420px] transform transition duration-500 hover:scale-105 hover:shadow-3xl bg-white bg-opacity-90 backdrop-blur-lg border-0 relative overflow-hidden group">
+                <div className={`absolute -top-10 -right-10 opacity-20 group-hover:opacity-40 transition-all duration-500 h-40 w-40 rounded-full blur-2xl bg-gradient-to-br ${getColorClasses(category.color)}`}></div>
+                <div className="flex items-center mb-6">
+                  <IconComponent className={`h-14 w-14 ${getIconColor(category.color)} drop-shadow-lg`} aria-label={category.title} />
+                  <h2 className="ml-4 text-4xl font-bold text-gray-900 drop-shadow">{category.title}</h2>
                 </div>
-                <div className="p-6">
-                  <div className="space-y-4">
-                    {category.items.map((item, itemIndex) => (
-                      <div key={itemIndex} className="flex justify-between items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-gray-900 mb-1">{item.name}</h3>
-                          <p className="text-sm text-gray-600">{item.description}</p>
-                        </div>
-                        <div className="ml-4 text-right">
-                          <span className="font-bold text-lg text-gray-900">{item.price}</span>
-                        </div>
+                <div className="space-y-4">
+                  {category.items.map((item, itemIndex) => (
+                    <div key={itemIndex} className="flex justify-between items-start p-4 bg-gray-50 rounded-xl hover:bg-gold-50 transition-colors duration-200">
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-lg text-gray-900 mb-1">{item.name}</h3>
+                        <p className="text-sm text-gray-600">{item.description}</p>
                       </div>
-                    ))}
-                  </div>
+                      <div className="ml-4 text-right">
+                        <span className="font-bold text-xl text-gold-700">{item.price}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             );
           })}
         </div>
-
-        <div className="mt-12 bg-gold-50 rounded-lg p-8 border border-gold-200">
-          <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-4">💡 Money-Saving Tips</h3>
-          <div className="grid md:grid-cols-2 gap-6">
+        <div className="mt-16 bg-gradient-to-r from-gold-100 via-yellow-50 to-nile-100 rounded-3xl p-12 border-2 border-gold-200 shadow-xl">
+          <h3 className="font-serif text-3xl font-extrabold text-gold-700 mb-8 flex items-center"><span className="h-8 w-8 mr-3 text-gold-500">💡</span> Money-Saving Tips</h3>
+          <div className="grid md:grid-cols-2 gap-10">
             <div>
               <h4 className="font-semibold text-gray-900 mb-2">Bargaining</h4>
               <p className="text-gray-700">Always negotiate prices in markets and with street vendors. Start at 50% of the asking price.</p>
