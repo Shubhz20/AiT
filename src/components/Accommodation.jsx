@@ -59,93 +59,83 @@ const Accommodation = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-100 via-gold-200 to-nile-200 py-12 animate-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="font-serif text-4xl font-bold text-gray-900 mb-4">
-            Available Accommodation Options
+          <h1 className="font-serif text-4xl md:text-5xl font-extrabold text-gold-700 mb-4 drop-shadow-xl">
+            Accommodation Options
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
             Discover the different accommodation options available in Tanta for long-term stays
           </p>
         </div>
-
-        {/* Accommodation Types */}
-        <div className="mb-16">
-          <h2 className="font-serif text-3xl font-bold text-gray-900 mb-8 text-center">
-            Accommodation Options for Long-Term Stays
-          </h2>
-          <div className="grid lg:grid-cols-3 gap-8">
-            {accommodationTypes.map((accommodation, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="relative">
-                  <img
-                    src={accommodation.image}
-                    alt={accommodation.name}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute top-4 left-4 bg-gold-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    {accommodation.type}
-                  </div>
-                  <div className="absolute top-4 right-4 bg-white bg-opacity-90 px-3 py-1 rounded-full flex items-center space-x-1">
-                    {renderStars(accommodation.rating)}
+        <div className="grid lg:grid-cols-3 gap-10">
+          {accommodationTypes.map((accommodation, index) => (
+            <div key={index} className="bg-white rounded-3xl shadow-2xl overflow-hidden backdrop-blur-lg bg-opacity-90 border-0 hover:scale-[1.02] hover:shadow-3xl transition-all duration-300">
+              <div className="relative">
+                <img
+                  src={accommodation.image}
+                  alt={accommodation.name}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute top-4 left-4 bg-gold-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  {accommodation.type}
+                </div>
+                <div className="absolute top-4 right-4 bg-white bg-opacity-90 px-3 py-1 rounded-full flex items-center space-x-1">
+                  {renderStars(accommodation.rating)}
+                </div>
+              </div>
+              <div className="p-8">
+                <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-2">
+                  {accommodation.name}
+                </h3>
+                <p className="text-gray-700 mb-4 font-medium">{accommodation.description}</p>
+                <div className="space-y-3 mb-4">
+                  <h4 className="font-semibold text-gray-900">Facilities:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {accommodation.facilities.map((facility, facilityIndex) => {
+                      const IconComponent = facilityIcons[facility] || Star;
+                      return (
+                        <div
+                          key={facilityIndex}
+                          className="flex items-center space-x-1 bg-gray-100 px-3 py-1 rounded-full text-sm"
+                        >
+                          <IconComponent className="h-4 w-4 text-gray-600" />
+                          <span className="text-gray-700">{facility}</span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
-                
-                <div className="p-6">
-                  <h3 className="font-serif text-xl font-semibold text-gray-900 mb-2">
-                    {accommodation.name}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{accommodation.description}</p>
-                  
-                  <div className="space-y-3 mb-4">
-                    <h4 className="font-semibold text-gray-900">Facilities:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {accommodation.facilities.map((facility, facilityIndex) => {
-                        const IconComponent = facilityIcons[facility] || Star;
-                        return (
-                          <div
-                            key={facilityIndex}
-                            className="flex items-center space-x-1 bg-gray-100 px-3 py-1 rounded-full text-sm"
-                          >
-                            <IconComponent className="h-4 w-4 text-gray-600" />
-                            <span className="text-gray-700">{facility}</span>
-                          </div>
-                        );
-                      })}
-                    </div>
+                <div className="grid grid-cols-2 gap-4 mt-4">
+                  <div>
+                    <h4 className="font-semibold text-green-700 mb-2">Pros:</h4>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      {accommodation.pros.map((pro, proIndex) => (
+                        <li key={proIndex} className="flex items-center">
+                          <span className="text-green-500 mr-2">✓</span>
+                          {pro}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-
-                  <div className="grid grid-cols-2 gap-4">
+                  {accommodation.cons.length > 0 && (
                     <div>
-                      <h4 className="font-semibold text-green-700 mb-2">Pros:</h4>
+                      <h4 className="font-semibold text-red-700 mb-2">Cons:</h4>
                       <ul className="text-sm text-gray-600 space-y-1">
-                        {accommodation.pros.map((pro, proIndex) => (
-                          <li key={proIndex} className="flex items-center">
-                            <span className="text-green-500 mr-2">✓</span>
-                            {pro}
+                        {accommodation.cons.map((con, conIndex) => (
+                          <li key={conIndex} className="flex items-center">
+                            <span className="text-red-500 mr-2">✗</span>
+                            {con}
                           </li>
                         ))}
                       </ul>
                     </div>
-                    {accommodation.cons.length > 0 && (
-                      <div>
-                        <h4 className="font-semibold text-red-700 mb-2">Cons:</h4>
-                        <ul className="text-sm text-gray-600 space-y-1">
-                          {accommodation.cons.map((con, conIndex) => (
-                            <li key={conIndex} className="flex items-center">
-                              <span className="text-red-500 mr-2">✗</span>
-                              {con}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

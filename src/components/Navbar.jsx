@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, MapPin, ShoppingBag, Bed, Calendar, DollarSign, MessageCircle, Sparkles, Star } from 'lucide-react';
+import { Menu, X, MapPin, ShoppingBag, Bed, Calendar, DollarSign, MessageCircle, Sparkles, Star, Home as HomeIcon } from 'lucide-react';
 import aiesecLogo from '../png-transparent-aiesec-hd-logo.png';
 
 const Navbar = ({ toggleTheme, lightMode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const [showLogo, setShowLogo] = useState(true);
+  // Remove scroll logic and always show the logo
 
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/necessities', label: 'Necessities' },
-    { path: '/accommodation', label: 'Accommodation' },
-    { path: '/transportation', label: 'Transportation' },
-    { path: '/agenda', label: 'Trip Agenda' },
-    { path: '/extra-charges', label: 'Extra Charges' },
-    { path: '/local-phrases', label: 'Local Phrases' },
-    { path: '/feedback', label: 'Feedback' },
+    { path: '/', label: 'Home', icon: HomeIcon },
+    { path: '/necessities', label: 'Necessities', icon: ShoppingBag },
+    { path: '/accommodation', label: 'Accommodation', icon: Bed },
+    { path: '/agenda', label: 'Trip Agenda', icon: Calendar },
+    { path: '/tips', label: 'Tips', icon: Sparkles },
+    { path: '/local-phrases', label: 'Local Phrases', icon: MessageCircle },
+    { path: '/feedback', label: 'Feedback', icon: Star },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -26,11 +27,11 @@ const Navbar = ({ toggleTheme, lightMode }) => {
     <nav className="navbar">
       <div className="navbar-inner">
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', height: 48 }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', height: 64 }}>
             <img
               src={aiesecLogo}
               alt="AIESEC Logo"
-              style={{ height: 40, width: 'auto', objectFit: 'contain', display: 'block' }}
+              style={{ height: 56, width: 'auto', objectFit: 'contain', display: 'block' }}
             />
           </Link>
         </div>

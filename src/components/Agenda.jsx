@@ -135,67 +135,6 @@ const Agenda = () => {
           </p>
         </div>
 
-        {/* Famous Places in Egypt */}
-        <div className="mb-16">
-          <h2 className="font-serif text-3xl font-bold text-gray-900 mb-8 text-center">
-            Famous Places in Egypt
-          </h2>
-          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-            {famousPlaces.map((place, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="relative">
-                  <img
-                    src={place.image}
-                    alt={place.name}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute top-4 left-4 bg-gold-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    {place.type}
-                  </div>
-                  <div className="absolute top-4 right-4 bg-white bg-opacity-90 px-3 py-1 rounded-full flex items-center space-x-1">
-                    {renderStars(place.rating)}
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <h3 className="font-serif text-xl font-semibold text-gray-900 mb-2">
-                    {place.name}
-                  </h3>
-                  <div className="flex items-center space-x-4 mb-3 text-sm text-gray-600">
-                    <div className="flex items-center space-x-1">
-                      <MapPin className="h-4 w-4" />
-                      <span>{place.location}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <Clock className="h-4 w-4" />
-                      <span>{place.duration}</span>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 mb-4">{place.description}</p>
-                  
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-lg font-bold text-gold-600">{place.price}</span>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Activities:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {place.activities.map((activity, activityIndex) => (
-                        <span
-                          key={activityIndex}
-                          className="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700"
-                        >
-                          {activity}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Tanta Local Activities */}
         <div className="mb-12">
           <h2 className="font-serif text-3xl font-bold text-gray-900 mb-8 text-center">
