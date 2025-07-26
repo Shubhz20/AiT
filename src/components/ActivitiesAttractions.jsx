@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Utensils, Coffee, Car, Camera, Building, TreePine, ShoppingBag, BookOpen, Music, Users, Trophy, GraduationCap, Heart } from 'lucide-react';
+import chilloutImg from '../images/attracctions/WhatsApp Image 2025-07-15 at 23.45.00 copy.jpeg';
 
 const ActivitiesAttractions = () => {
   const localActivities = [
@@ -104,76 +105,13 @@ const ActivitiesAttractions = () => {
 
   const localAttractions = [
     {
-      name: '🕌 Ahmad al-Badawi Mosque & Shrine',
-      type: 'Spiritual & Historical',
-      description: 'Sacred site for Sufi Muslims and center of the October Sufi Festival (Mawlid). This is one of the most important religious sites in Egypt, known for its beautiful architecture and spiritual significance.',
-      bestTime: 'Early morning or evening for prayers',
-      tips: 'Dress modestly, remove shoes before entering, attend daily prayers or talk with local devotees about Sufi traditions',
-      image: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      activities: ['Attend daily prayers', 'Learn about Sufi traditions', 'Visit during Mawlid festival']
-    },
-    {
-      name: '🏺 Tanta Museum',
-      type: 'Cultural & Educational',
-      description: 'Houses artifacts from Pharaonic, Coptic, and Islamic periods. A treasure trove of local history and cultural heritage.',
-      bestTime: 'Morning to early afternoon',
-      tips: 'Take a guided tour or join a weekend lecture (ask the front desk), bring camera for exhibits',
-      image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      activities: ['Guided tours', 'Weekend lectures', 'Photography of exhibits']
-    },
-    {
-      name: '🛍️ Tanta Souqs (Markets)',
-      type: 'Traditional Shopping',
-      description: 'Full of sweets, textiles, perfumes, and antiques. Experience the vibrant local culture and traditional commerce.',
-      bestTime: 'Morning to early afternoon',
-      tips: 'Bargain for better prices, be prepared for crowds, taste Meshabbik and Halawet el-Moulid',
-      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      activities: ['Bargain shopping', 'Taste local sweets', 'Souvenir hunting']
-    },
-    {
-      name: '🌳 Al-Saadi Park & El-Tahrir Garden',
-      type: 'Nature & Relaxation',
-      description: 'Ideal for walks, reading, or relaxing. Beautiful green spaces perfect for escaping the city hustle.',
-      bestTime: 'Morning or late afternoon',
-      tips: 'Bring water and snacks, great for families, perfect for picnics',
-      image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      activities: ['Picnic', 'Jogging', 'People-watching', 'Drawing/sketching']
-    },
-    {
-      name: '🏛️ Tanta Opera House & Cultural Center',
-      type: 'Arts & Performance',
-      description: 'Live music, plays, and cultural events. The cultural heart of Tanta with regular performances.',
-      bestTime: 'Evening for performances',
-      tips: 'Buy tickets early, check schedule in advance, dress appropriately for performances',
-      image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      activities: ['Attend Egyptian concerts', 'Watch plays', 'Cultural events']
-    },
-    {
-      name: '🎓 Tanta University Campus',
-      type: 'Modern Landmark',
-      description: 'Peaceful academic environment with beautiful gardens and modern architecture.',
-      bestTime: 'Morning or afternoon',
-      tips: 'Chat with local students, read in campus gardens, take photos',
-      image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      activities: ['Chat with students', 'Read in gardens', 'Photography']
-    },
-    {
-      name: '⚽ Tanta Sporting Club',
-      type: 'Sports & Community',
-      description: 'Pools, tennis, soccer, fitness events. Active community center for sports and recreation.',
-      bestTime: 'Morning or evening',
-      tips: 'Check guest access, bring sports equipment, join workout sessions',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      activities: ['Swimming', 'Tennis', 'Workout sessions', 'Soccer']
-    },
-    {
-      name: '🔭 Local Hidden Gems',
-      type: 'Off-the-Beaten-Path',
-      description: 'Bridge Farouk Fountain, Gomaa\'s Roof, Al-Mafaraq district. Discover the lesser-known spots that locals love.',
-      bestTime: 'Late afternoon to evening',
-      tips: 'Ask locals for directions, perfect for photo walks, chill at rooftop cafés',
-      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      activities: ['Photo walks', 'Architecture sketching', 'Rooftop cafés']
+      name: 'Chillout Spot',
+      type: 'Relaxation',
+      description: 'A cozy place to relax, unwind, and enjoy the local vibe. Perfect for a break during your trip.',
+      bestTime: 'Afternoon or evening',
+      tips: 'Bring a book or enjoy a coffee with friends',
+      image: chilloutImg,
+      activities: ['Relaxing', 'Socializing', 'Reading']
     }
   ];
 
